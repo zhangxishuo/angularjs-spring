@@ -13,23 +13,24 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state({
+        name: 'teacher',                                    // 名称
+        url: '/teacher',                                    // url
+        controller: 'TeacherIndexCtrl',                     // 控制器名称
+        templateUrl: 'views/teacher/index.html'             // V层地址
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
+      .state({
+        name: 'teacher.add',                                // 名称
+        url: '/add',                                        // url
+        controller: 'TeacherAddCtrl',                       // 控制器名称
+        templateUrl: 'views/teacher/add.html'               // V层地址
       });
+    $urlRouterProvider
+      .otherwise('/teacher');
   });
