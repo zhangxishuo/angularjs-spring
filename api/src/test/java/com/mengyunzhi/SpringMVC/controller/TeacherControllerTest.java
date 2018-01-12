@@ -28,11 +28,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class TeacherControllerTest {
 
     @Autowired
+    TeacherRepository teacherRepository;                            // 教师仓库接口
+
+    @Autowired
     MockMvc mockMvc;                                                // 模拟请求
 
     @Test
     public void getAllTest() throws Exception {
         String url = "/Teacher/";                                   // 定义url
+        this.mockMvc
+                .perform(get(url))                                  // 模拟用get方法访问url
+                .andDo(print())                                     // 打印数据
+                .andExpect(status().isOk());                        // 期待状态为Ok
+    }
+
+    @Test
+    public void getOneTest() throws Exception {
+        Teacher teacher = new Teacher();                            // 新建教师
+        teacherRepository.save(teacher);                            // 保存教师
+        String url = "/Teacher/" + teacher.getId();                 // 拼接url
         this.mockMvc
                 .perform(get(url))                                  // 模拟用get方法访问url
                 .andDo(print())                                     // 打印数据

@@ -23,6 +23,11 @@ public class TeacherServiceImpl implements TeacherService {
         return teachers;                                              // 调用findAll方法获取所有教师并返回
     }
 
+    public Teacher getOne(Long id) {
+        Teacher teacher = teacherRepository.findOne(id);
+        return teacher;                                               // 调用findOne方法获取教师并返回
+    }
+
     public Teacher save(Teacher teacher) {
         return teacherRepository.save(teacher);                       // 调用save方法保存教师并返回
     }

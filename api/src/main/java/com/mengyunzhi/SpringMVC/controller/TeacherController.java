@@ -24,6 +24,11 @@ public class TeacherController {
         return teacherService.getAll();                         // 返回教师列表
     }
 
+    @GetMapping("/{id}")
+    public Teacher getOne(@PathVariable Long id) {
+        return teacherService.getOne(id);
+    }
+
     @PostMapping("/")
     public Teacher save(@RequestBody Teacher teacher) {
         return teacherService.save(teacher);                           // 保存并返回教师

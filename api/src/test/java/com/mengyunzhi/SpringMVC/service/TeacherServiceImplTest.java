@@ -33,6 +33,14 @@ public class TeacherServiceImplTest {
     }
 
     @Test
+    public void getOneTest() {
+        Teacher teacher = new Teacher();                            // 新建教师
+        teacherRepository.save(teacher);                            // 保存教师
+        Teacher newTeacher = teacherService.getOne(teacher.getId());   // 调用教师服务中的getOne方法获取数据
+        assertThat(newTeacher).isNotNull();                         // 断言获取到的数据不为空
+    }
+
+    @Test
     public void saveTest() {
         Teacher teacher = new Teacher();                            // 新建教师
         teacherService.save(teacher);                               // 调用教师服务中的save方法保存教师
