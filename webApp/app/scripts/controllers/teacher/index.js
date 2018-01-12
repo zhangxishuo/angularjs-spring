@@ -9,7 +9,7 @@
  */
 angular.module('webApp')
   .controller('TeacherIndexCtrl', function ($scope, $http) {
-    var self = this;
+    var self  = this;
 
     self.init = function () {
       var url = 'http://127.0.0.1:8080/Teacher/';                // 定义url
@@ -19,7 +19,8 @@ angular.module('webApp')
           console.log(response);
           $scope.list = response.data;                           // 成功，将请求到的数据赋给$scope
         }, function error (response) {
-          console.log('error' + response);                       // 失败，打印错误信息
+          console.log('error' + url);                            // 失败，打印错误信息
+          console.log(response);
         });
     };
 
