@@ -3,9 +3,7 @@ package com.mengyunzhi.SpringMVC.controller;
 import com.mengyunzhi.SpringMVC.repository.Teacher;
 import com.mengyunzhi.SpringMVC.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +22,10 @@ public class TeacherController {
     @GetMapping("/")
     public List<Teacher> getAll() {
         return teacherService.getAll();                         // 返回教师列表
+    }
+
+    @PostMapping("/")
+    public Teacher save(@RequestBody Teacher teacher) {
+        return teacherService.save(teacher);                           // 保存并返回教师
     }
 }

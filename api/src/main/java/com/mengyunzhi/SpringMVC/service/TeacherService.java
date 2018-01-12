@@ -14,4 +14,6 @@ public interface TeacherService {
      * 获取所有教师
      */
     List<Teacher> getAll();
+
+    Teacher save(Teacher teacher);
 }

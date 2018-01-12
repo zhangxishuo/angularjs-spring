@@ -22,4 +22,8 @@ public class TeacherServiceImpl implements TeacherService {
         List<Teacher> teachers = (List<Teacher>) teacherRepository.findAll();
         return teachers;                                              // 调用findAll方法获取所有教师并返回
     }
+
+    public Teacher save(Teacher teacher) {
+        return teacherRepository.save(teacher);                       // 调用save方法保存教师并返回
+    }
 }
