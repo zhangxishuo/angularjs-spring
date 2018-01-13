@@ -32,6 +32,12 @@ angular
         templateUrl: 'views/teacher/add.html'               // V层地址
       })
       .state({
+        name: 'teacher.view',                               // 名称
+        url: '/view/:id',                                   // url, 带参数
+        controller: 'TeacherViewCtrl',                      // 控制器名称
+        templateUrl: 'views/teacher/view.html'              // V层地址
+      })
+      .state({
         name: 'teacher.edit',                               // 名称
         url: '/edit/:id',                                   // url, 带参数
         controller: 'TeacherEditCtrl',                      // 控制器名称
