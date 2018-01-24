@@ -11,9 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.Assert.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -39,7 +37,7 @@ public class TeacherControllerTest {
         this.mockMvc
                 .perform(get(url))                                  // 模拟用get方法访问url
                 .andDo(print())                                     // 打印数据
-                .andExpect(status().isOk());                        // 期待状态为Ok
+                .andExpect(status().isOk());                        // 期待状态为ok
     }
 
     @Test
@@ -50,7 +48,7 @@ public class TeacherControllerTest {
         this.mockMvc
                 .perform(get(url))                                  // 模拟用get方法访问url
                 .andDo(print())                                     // 打印数据
-                .andExpect(status().isOk());                        // 期待状态为Ok
+                .andExpect(status().isOk());                        // 期待状态为ok
     }
 
     @Test
@@ -61,6 +59,30 @@ public class TeacherControllerTest {
                         .content("{}")                              // 传入空对象
                         .contentType(MediaType.APPLICATION_JSON_UTF8))   // 类型为utf-8
                 .andDo(print())                                     // 打印数据
-                .andExpect(status().isOk());                        // 期待状态为Ok
+                .andExpect(status().isOk());                        // 期待状态为ok
+    }
+
+    @Test
+    public void updateTest() throws Exception {
+        Teacher teacher = new Teacher();                            // 新建教师
+        teacherRepository.save(teacher);
+        String url = "/Teacher/" + teacher.getId();                 // 拼接url
+        this.mockMvc
+                .perform(put(url)                                   // 模拟用put方法访问url
+                        .content("{}")                              // 传入空对象
+                        .contentType(MediaType.APPLICATION_JSON_UTF8))   // 类型为utf-8
+                .andDo(print())                                     // 打印数据
+                .andExpect(status().isOk());                        // 期待状态为ok
+    }
+
+    @Test
+    public void deleteTest() throws Exception {
+        Teacher teacher = new Teacher();                            // 新建教师
+        teacherRepository.save(teacher);
+        String url = "/Teacher/" + teacher.getId();                 // 拼接url
+        this.mockMvc
+                .perform(delete(url))                               // 模拟用delete方法访问url
+                .andDo(print())                                     // 打印数据
+                .andExpect(status().isOk());                        // 期待状态为ok
     }
 }

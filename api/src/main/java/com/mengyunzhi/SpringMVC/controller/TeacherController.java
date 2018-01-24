@@ -26,11 +26,22 @@ public class TeacherController {
 
     @GetMapping("/{id}")
     public Teacher getOne(@PathVariable Long id) {
-        return teacherService.getOne(id);
+        return teacherService.getOne(id);                       // 根据id获取教师并返回
     }
 
     @PostMapping("/")
     public Teacher save(@RequestBody Teacher teacher) {
-        return teacherService.save(teacher);                           // 保存并返回教师
+        return teacherService.save(teacher);                    // 保存并返回教师
+    }
+
+    @PutMapping("/{id}")
+    public Teacher update(@PathVariable Long id, @RequestBody Teacher teacher) {
+        return teacherService.update(id, teacher);              // 更新数据并返回
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        teacherService.delete(id);
+        return;
     }
 }

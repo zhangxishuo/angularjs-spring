@@ -31,4 +31,18 @@ public class TeacherServiceImpl implements TeacherService {
     public Teacher save(Teacher teacher) {
         return teacherRepository.save(teacher);                       // 调用save方法保存教师并返回
     }
+
+    public Teacher update(Long id, Teacher teacher) {
+        Teacher teacher1 = teacherRepository.findOne(id);             // 获取教师
+        teacher1.setName(teacher.getName());
+        teacher1.setUsername(teacher.getUsername());
+        teacher1.setEmail(teacher.getEmail());
+        teacher1.setSex(teacher.isSex());                             // 设置各字段的值
+        return teacherRepository.save(teacher1);                      // 保存并返回
+    }
+
+    public void delete(Long id) {
+        teacherRepository.delete(id);                                 // 根据id删除数据
+        return;
+    }
 }
