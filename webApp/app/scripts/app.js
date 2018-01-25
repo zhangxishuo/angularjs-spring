@@ -50,6 +50,12 @@ angular
         url: '/klass',                                      // url, 带参数
         controller: 'KlassIndexCtrl',                       // 控制器名称
         templateUrl: 'views/klass/index.html'               // V层地址
+      })
+      .state({
+        name: 'klass.add',                                  // 班级首页
+        url: '/add',                                        // url, 带参数
+        controller: 'KlassAddCtrl',                         // 控制器名称
+        templateUrl: 'views/klass/add.html'                 // V层地址
       });
     $urlRouterProvider
       .otherwise('/teacher');
