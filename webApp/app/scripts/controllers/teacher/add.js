@@ -12,7 +12,7 @@ angular.module('webApp')
     var self  = this;
 
     self.init = function () {
-      $scope.teacher = {                                    // 初始化一个空的teacher
+      $scope.teacher = {                                   // 初始化一个空的teacher
         name: '',
         username: '',
         email: '',

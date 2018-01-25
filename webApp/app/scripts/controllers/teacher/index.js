@@ -8,7 +8,7 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-  .controller('TeacherIndexCtrl', function ($scope, $http, $state) {
+  .controller('TeacherIndexCtrl', function ($scope, $http) {
     var self  = this;
 
     self.init = function () {
@@ -23,20 +23,6 @@ angular.module('webApp')
           console.log(response);
         });
     };
-
-    self.delete = function (teacher) {
-      var url = 'http://127.0.0.1:8080/Teacher/' + teacher.id;   // 拼接url
-      $http.delete(url)
-        .then(function success (response) {
-          console.log('success');
-          $state.reload();                                       // 成功，刷新页面
-        }, function error (response) {
-          console.log('error' + url);
-          console.log(response);                                 // 失败，打印错误信息
-        });
-    };
-
-    $scope.delete = self.delete;                                 // 将delete方法赋给$scope
 
     self.init();
   });
