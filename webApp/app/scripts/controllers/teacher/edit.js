@@ -12,7 +12,7 @@ angular.module('webApp')
     var self  = this;
 
     self.init = function () {
-      self.getTeacher();                                         // 调用方法获取数据
+      self.getTeacher();                                      // 调用方法获取数据
     };
 
     self.getTeacher = function () {
