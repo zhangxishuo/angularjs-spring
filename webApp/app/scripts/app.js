@@ -15,21 +15,15 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
+  .config(function ($stateProvider) {
+    $stateProvider
+      .state({
+        name: 'teacher',
+        url: '/teacher',
+        controller: 'TeacherIndexCtrl',
+        templateUrl: 'views/teacher/index.html'
       });
   });
