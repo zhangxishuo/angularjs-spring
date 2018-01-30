@@ -1,4 +1,4 @@
-package com.mengyunzhi.springmvcstudy;
+package com.mengyunzhi.SpringMvcStudy;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
