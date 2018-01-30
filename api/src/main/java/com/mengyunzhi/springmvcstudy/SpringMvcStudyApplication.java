@@ -1,4 +1,4 @@
-package com.mengyunzhi.SpringMvcStudy;
+package com.mengyunzhi.springmvcstudy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
