@@ -2,8 +2,6 @@ package com.mengyunzhi.SpringMvcStudy.service;
 
 import com.mengyunzhi.SpringMvcStudy.entity.Teacher;
 
-import java.util.List;
-
 /**
  * create by zhangxishuo
  */
@@ -11,7 +9,7 @@ public interface TeacherService {
     /**
      * 获取教师列表
      */
-    List<Teacher> getAll();
+    Iterable<Teacher> getAll();
 
     /**
      * 根据id获取教师
