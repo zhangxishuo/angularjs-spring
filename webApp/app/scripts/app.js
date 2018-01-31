@@ -44,6 +44,19 @@ angular
                 url: '/edit/:id',
                 controller: 'TeacherEditCtrl',
                 templateUrl: 'views/teacher/edit.html'
+            })
+            // 班级管理
+            .state({
+                name: 'klass',
+                url: '/klass',
+                controller: 'KlassIndexCtrl',
+                templateUrl: 'views/klass/index.html'
+            })
+            .state({
+                name: 'klass.add',
+                url: '/add',
+                controller: 'KlassAddCtrl',
+                templateUrl: 'views/klass/add.html'
             });
 
         $urlRouterProvider
