@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class TeacherServiceImpl implements TeacherService {
 
     @Autowired
-    TeacherRepository teacherRepository;              // 教师
+    private TeacherRepository teacherRepository;      // 教师
 
     @Override
     public Iterable<Teacher> getAll() {
