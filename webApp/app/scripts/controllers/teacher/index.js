@@ -22,7 +22,6 @@ angular.module('webApp')
         };
 
         self.delete = function(object) {
-            console.log(object.id);
             var url = '/Teacher/' + object.id;
             $http.delete(url)
                 .then(function success(response) {

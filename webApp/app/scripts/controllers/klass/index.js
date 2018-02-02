@@ -21,5 +21,18 @@ angular.module('webApp')
                 });
         };
 
+        self.delete = function(object) {
+            var url = '/Klass/' + object.id;
+            $http.delete(url)
+                .then(function success(response) {
+                    console.log('success', response);
+                    object._delete = true;
+                }, function error() {
+                    console.log('error' + url);
+                });
+        };
+
+        $scope.delete = self.delete;
+
         self.init();
     });
