@@ -57,6 +57,18 @@ angular
                 url: '/add',
                 controller: 'KlassAddCtrl',
                 templateUrl: 'views/klass/add.html'
+            })
+            .state({
+                name: 'klass.view',
+                url: '/view/:id',
+                controller: 'KlassViewCtrl',
+                templateUrl: 'views/klass/view.html'
+            })
+            .state({
+                name: 'klass.edit',
+                url: '/edit/:id',
+                controller: 'KlassEditCtrl',
+                templateUrl: 'views/klass/edit.html'
             });
 
         $urlRouterProvider
