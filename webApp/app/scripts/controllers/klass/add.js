@@ -8,7 +8,7 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-    .controller('KlassAddCtrl', function($scope, $http, $state) {
+    .controller('KlassAddCtrl', function($scope, $http, $state, teacher) {
         var self = this;
 
         self.init = function() {
@@ -16,14 +16,10 @@ angular.module('webApp')
         };
 
         self.getAllTeachers = function() {
-            var url = '/Teacher/';
-            $http.get(url)
-                .then(function success(response) {
-                    $scope.teachers = response.data;
-                }, function error() {
-                    console.log('error' + url);
-                });
-        }
+            teacher.getAllTeachers(function(teachers) {
+                $scope.teachers = teachers;
+            });
+        };
 
         self.submit = function() {
             var url = '/Klass/';
