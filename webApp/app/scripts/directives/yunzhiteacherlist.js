@@ -7,12 +7,14 @@
  * # yunzhiTeacherList
  */
 angular.module('webApp')
-    .directive('yunzhiTeacherList', function() {
+    .directive('yunzhiTeacherList', function(teacher) {
         return {
             templateUrl: 'views/directive/yunzhiTeacherList.html',
             restrict: 'E',
-            link: function postLink(scope, element, attrs) {
-                // element.text('this is the yunzhiTeacherList directive');
+            link: function postLink($scope) {
+                teacher.getAllTeachers(function(teachers) {
+                    $scope.teachers = teachers;
+                });
             }
         };
     });

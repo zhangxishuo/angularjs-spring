@@ -12,13 +12,7 @@ angular.module('webApp')
         var self = this;
 
         self.init = function() {
-            self.getAllTeachers();
-        };
-
-        self.getAllTeachers = function() {
-            teacher.getAllTeachers(function(teachers) {
-                $scope.teachers = teachers;
-            });
+            
         };
 
         self.submit = function() {

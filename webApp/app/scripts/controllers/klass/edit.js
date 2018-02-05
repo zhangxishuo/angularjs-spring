@@ -12,7 +12,6 @@ angular.module('webApp')
         var self = this;
 
         self.init = function() {
-            self.getAllTeachers();
             var url = '/Klass/' + $stateParams.id;
             $http.get(url)
                 .then(function success(response) {
@@ -20,12 +19,6 @@ angular.module('webApp')
                 }, function error() {
                     console.log('error' + url);
                 });
-        };
-
-        self.getAllTeachers = function() {
-            teacher.getAllTeachers(function(teachers) {
-                $scope.teachers = teachers;
-            });
         };
 
         self.submit = function() {
