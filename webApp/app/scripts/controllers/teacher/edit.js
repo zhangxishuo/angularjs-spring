@@ -1,11 +1,9 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name webApp.controller:TeacherEditCtrl
- * @description
- * # TeacherEditCtrl
- * Controller of the webApp
+ * 教师编辑控制器
+ * controller:TeacherEditCtrl
+ * zhangxishuo
  */
 angular.module('webApp')
     .controller('TeacherEditCtrl', function($scope, $state, $stateParams, teacher) {
