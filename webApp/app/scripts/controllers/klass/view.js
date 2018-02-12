@@ -8,17 +8,14 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-    .controller('KlassViewCtrl', function($scope, $http, $stateParams) {
+    .controller('KlassViewCtrl', function($scope, $stateParams, klass) {
         var self = this;
+        var id   = $stateParams.id;
 
         self.init = function() {
-            var url = '/Klass/' + $stateParams.id;
-            $http.get(url)
-                .then(function success(response) {
-                    $scope.data = response.data;
-                }, function error() {
-                    console.log('error' + url);
-                });
+            klass.one(id, function(data) {
+                $scope.data = data;
+            });
         };
 
         self.init();
