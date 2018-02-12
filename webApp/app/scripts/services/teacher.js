@@ -12,6 +12,7 @@ angular.module('webApp')
 
         /**
          * 获取空教师
+         * zhangxishuo
          */
         self.blank = function(callback) {
             var data = {                                         // 定义空对象
@@ -27,6 +28,7 @@ angular.module('webApp')
 
         /**
          * 获取所有教师
+         * zhangxishuo
          */
         self.all = function(callback) {
             $http.get(url)
@@ -35,12 +37,13 @@ angular.module('webApp')
                         callback(response.data);
                     }
                 }, function error() {
-                    console.log('error' + url);
+                    console.log('error');
                 });
         };
 
         /**
          * 根据id获取相应教师
+         * zhangxishuo
          */
         self.one = function(id, callback) {
             $http.get(url + id)
@@ -49,12 +52,13 @@ angular.module('webApp')
                         callback(response.data);
                     }
                 }, function error() {
-                    console.log('error' + url);
+                    console.log('error');
                 });
         };
 
         /**
          * 保存教师
+         * zhangxishuo
          */
         self.save = function(data, callback) {
             $http.post(url, data)
@@ -63,12 +67,13 @@ angular.module('webApp')
                         callback(response.data);
                     }
                 }, function error() {
-                    console.log('error' + url);
+                    console.log('error');
                 });
         };
 
         /**
          * 更新教师
+         * zhangxishuo
          */
         self.update = function(id, data, callback) {
             $http.put(url + id, data)
@@ -77,12 +82,13 @@ angular.module('webApp')
                         callback(response.data);
                     }
                 }, function error() {
-                    console.log('error' + url);
+                    console.log('error');
                 });
         };
 
         /**
          * 根据id删除教师
+         * zhangxishuo
          */
         self.delete = function(id, callback) {
             $http.delete(url + id)
@@ -91,7 +97,7 @@ angular.module('webApp')
                         callback();
                     }
                 }, function error() {
-                    console.log('error' + url);
+                    console.log('error');
                 });
         };
 
