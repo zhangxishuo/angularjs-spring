@@ -16,22 +16,22 @@
             <th>性别</th>
             <th>操作</th>
         </tr>
-        <tr ng-repeat="_list in list" ng-hide="_list._delete">
+        <tr ng-repeat="list in lists" ng-hide="list._delete">
             <td>{{ $index + 1 }}</td>
-            <td>{{ _list.name }}</td>
-            <td>{{ _list.username }}</td>
-            <td>{{ _list.email }}</td>
-            <td>{{ _list.sex }}</td>
+            <td>{{ list.name }}</td>
+            <td>{{ list.username }}</td>
+            <td>{{ list.email }}</td>
+            <td>{{ list.sex }}</td>
             <td>
-                <a href="#!/teacher/view/{{ _list.id }}" class="btn btn-xs btn-success">
+                <a href="#!/teacher/view/{{ list.id }}" class="btn btn-xs btn-success">
                     <i class="glyphicon glyphicon-search"></i>
                     查看
                 </a>
-                <a href="#!/teacher/edit/{{ _list.id }}" class="btn btn-xs btn-warning">
+                <a href="#!/teacher/edit/{{ list.id }}" class="btn btn-xs btn-warning">
                     <i class="glyphicon glyphicon-pencil"></i>
                     编辑
                 </a>
-                <button ng-click="delete(_list)" class="btn btn-xs btn-danger">
+                <button ng-click="delete(list)" class="btn btn-xs btn-danger">
                     <i class="glyphicon glyphicon-trash"></i>
                     删除
                 </button>
