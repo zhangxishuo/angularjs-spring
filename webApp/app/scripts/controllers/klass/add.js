@@ -8,7 +8,7 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-    .controller('KlassAddCtrl', function($scope, $http, $state, teacher) {
+    .controller('KlassAddCtrl', function($scope, $state, klass) {
         var self = this;
 
         self.init = function() {
@@ -16,14 +16,10 @@ angular.module('webApp')
         };
 
         self.submit = function() {
-            var url = '/Klass/';
-            $http.post(url, $scope.data)
-                .then(function success(response) {
-                    console.log('success', response);
-                    $state.go('klass', {}, { reload: true });
-                }, function error() {
-                    console.log('error' + url);
-                });
+            klass.save($scope.data, function(data) {
+                console.log('success', data);
+                $state.go('klass', {}, { reload: true });
+            });
         };
 
         $scope.submit = self.submit;
