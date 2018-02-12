@@ -8,27 +8,20 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-    .controller('TeacherAddCtrl', function($scope, $http, $state) {
+    .controller('TeacherAddCtrl', function($scope, $state, teacher) {
         var self = this;
 
         self.init = function() {
-            $scope.data = {
-                name: '',
-                username: '',
-                email: '',
-                sex: true
-            }
+            teacher.blank(function(data) {
+                $scope.data = data;
+            });
         };
 
         self.submit = function() {
-            var url = '/Teacher/';
-            $http.post(url, $scope.data)
-                .then(function success(response) {
-                    console.log('success', response);
-                    $state.go('teacher', {}, { reload: true });
-                }, function error() {
-                    console.log('error' + url);
-                });
+            teacher.save($scope.data, function(data) {
+                console.log('success', data);
+                $state.go('teacher', {}, { reload: true });
+            });
         };
 
         $scope.submit = self.submit;

@@ -8,18 +8,14 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-    .controller('TeacherViewCtrl', function($scope, $http, $stateParams) {
+    .controller('TeacherViewCtrl', function($scope, $stateParams, teacher) {
         var self = this;
+        var id   = $stateParams.id;
 
         self.init = function() {
-            var id = $stateParams.id;
-            var url = '/Teacher/' + id;
-            $http.get(url)
-                .then(function success(response) {
-                    $scope.data = response.data;
-                }, function error() {
-                    console.log('error' + url);
-                });
+            teacher.one(id, function(data) {
+                $scope.data = data;
+            });
         };
 
         self.init();

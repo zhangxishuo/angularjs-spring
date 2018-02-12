@@ -8,28 +8,19 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-    .controller('TeacherIndexCtrl', function($scope, $http) {
+    .controller('TeacherIndexCtrl', function($scope, teacher) {
         var self = this;
 
         self.init = function() {
-            var url = '/Teacher/';
-            $http.get(url)
-                .then(function success(response) {
-                    $scope.list = response.data;
-                }, function error() {
-                    console.log('error' + url);
-                });
+            teacher.all(function(data) {
+                $scope.lists = data;
+            });
         };
 
-        self.delete = function(object) {
-            var url = '/Teacher/' + object.id;
-            $http.delete(url)
-                .then(function success(response) {
-                    console.log('success', response);
-                    object._delete = true;
-                }, function error() {
-                    console.log('error' + url);
-                });
+        self.delete = function(list) {
+            teacher.delete(list.id, function() {
+                list._delete = true;
+            });
         };
 
         $scope.delete = self.delete;
