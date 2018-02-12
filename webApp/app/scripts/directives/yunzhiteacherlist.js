@@ -12,7 +12,7 @@ angular.module('webApp')
             templateUrl: 'views/directive/yunzhiTeacherList.html',
             restrict: 'E',
             link: function postLink($scope) {
-                teacher.getAllTeachers(function(teachers) {
+                teacher.all(function(teachers) {
                     $scope.teachers = teachers;
                 });
             }
