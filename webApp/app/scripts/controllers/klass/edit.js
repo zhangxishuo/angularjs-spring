@@ -8,28 +8,21 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-    .controller('KlassEditCtrl', function($scope, $http, $state, $stateParams, teacher) {
+    .controller('KlassEditCtrl', function($scope, $state, $stateParams, klass) {
         var self = this;
+        var id   = $stateParams.id;
 
         self.init = function() {
-            var url = '/Klass/' + $stateParams.id;
-            $http.get(url)
-                .then(function success(response) {
-                    $scope.data = response.data;
-                }, function error() {
-                    console.log('error' + url);
-                });
+            klass.one(id, function(data) {
+                $scope.data = data;
+            });
         };
 
         self.submit = function() {
-            var url = '/Klass/' + $stateParams.id;
-            $http.put(url, $scope.data)
-                .then(function success(response) {
-                    console.log('success', response);
-                    $state.go('klass', {}, { reload: true });
-                }, function error() {
-                    console.log('error' + url);
-                });
+            klass.update(id, $scope.data, function(data) {
+                console.log('success', data);
+                $state.go('klass', {}, { reload: true });
+            });
         };
 
         $scope.submit = self.submit;
