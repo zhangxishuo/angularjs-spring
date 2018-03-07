@@ -1,5 +1,7 @@
 package com.mengyunzhi.SpringMvcStudy.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 /**
@@ -7,6 +9,7 @@ import javax.persistence.*;
  * 班级实体
  */
 @Entity
+@Data
 public class Klass {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,29 +21,5 @@ public class Klass {
     private Teacher teacher;         // 辅导员
 
     public Klass() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
     }
 }
