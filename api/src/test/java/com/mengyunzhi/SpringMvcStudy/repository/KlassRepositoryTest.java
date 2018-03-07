@@ -4,8 +4,6 @@ import com.mengyunzhi.SpringMvcStudy.SpringMvcStudyApplicationTests;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.junit.Assert.*;
-
 /**
  * create by zhangxishuo
  */

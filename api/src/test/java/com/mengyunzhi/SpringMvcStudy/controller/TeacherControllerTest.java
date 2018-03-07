@@ -1,9 +1,10 @@
 package com.mengyunzhi.SpringMvcStudy.controller;
 
 import com.google.gson.Gson;
+import com.mengyunzhi.SpringMvcStudy.ControllerTest;
 import com.mengyunzhi.SpringMvcStudy.entity.Teacher;
 import com.mengyunzhi.SpringMvcStudy.repository.TeacherRepository;
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,16 +18,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * create by zhangxishuo
  */
+@Slf4j
 public class TeacherControllerTest extends ControllerTest {
 
     private static final String url = "/Teacher/";
 
     private static final String name = "张三";
 
-    private static final Logger logger = Logger.getLogger(TeacherControllerTest.class.getName());
-
     @Autowired
-    private MockMvc mockMvc;            // 模拟请求
+    private MockMvc mockMvc;                         // 模拟请求
 
     @Autowired
     private TeacherRepository teacherRepository;     // 教师
@@ -40,7 +40,7 @@ public class TeacherControllerTest extends ControllerTest {
 
     @Test
     public void getOneTest() throws Exception {
-        logger.info("新建教师并保存");
+        log.info("新建教师并保存");
         Teacher teacher = new Teacher();
         teacher.setName(name);
         teacherRepository.save(teacher);
@@ -62,12 +62,12 @@ public class TeacherControllerTest extends ControllerTest {
 
     @Test
     public void updateTest() throws Exception {
-        logger.info("新建教师并保存");
+        log.info("新建教师并保存");
         Teacher teacher = new Teacher();
         teacherRepository.save(teacher);
         Long id = teacher.getId();
 
-        logger.info("新建教师字符串");
+        log.info("新建教师字符串");
         Teacher teacher1 = new Teacher();
         teacher1.setName(name);
         Gson gson = new Gson();
@@ -79,14 +79,14 @@ public class TeacherControllerTest extends ControllerTest {
                         .header("content-type", MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk());
 
-        logger.info("查询并断言");
+        log.info("查询并断言");
         Teacher newTeacher = teacherRepository.findOne(id);
         assertThat(newTeacher.getName()).isEqualTo(name);
     }
 
     @Test
     public void deleteTest() throws Exception {
-        logger.info("新建教师并保存");
+        log.info("新建教师并保存");
         Teacher teacher = new Teacher();
         teacherRepository.save(teacher);
         Long id = teacher.getId();
@@ -95,7 +95,7 @@ public class TeacherControllerTest extends ControllerTest {
                 .perform(MockMvcRequestBuilders.delete(url + id))
                 .andExpect(status().isOk());
 
-        logger.info("查询并断言");
+        log.info("查询并断言");
         Teacher newTeacher = teacherRepository.findOne(id);
         assertThat(newTeacher).isNull();
     }

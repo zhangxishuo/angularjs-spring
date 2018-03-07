@@ -1,9 +1,10 @@
 package com.mengyunzhi.SpringMvcStudy.controller;
 
 import com.google.gson.Gson;
+import com.mengyunzhi.SpringMvcStudy.ControllerTest;
 import com.mengyunzhi.SpringMvcStudy.entity.Klass;
 import com.mengyunzhi.SpringMvcStudy.repository.KlassRepository;
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,19 +18,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * create by zhangxishuo
  */
+@Slf4j
 public class KlassControllerTest extends ControllerTest {
-
-    private static final Logger logger = Logger.getLogger(KlassControllerTest.class.getName());
 
     private static final String url = "/Klass/";
 
     private static final String name = "classTest";
 
     @Autowired
-    private KlassRepository klassRepository;       // 班级
+    private MockMvc mockMvc;                       // 模拟请求
 
     @Autowired
-    private MockMvc mockMvc;                       // 模拟请求
+    private KlassRepository klassRepository;       // 班级
 
     @Test
     public void getAll() throws Exception {
@@ -40,7 +40,7 @@ public class KlassControllerTest extends ControllerTest {
 
     @Test
     public void getOne() throws Exception {
-        logger.info("新建班级并保存");
+        log.info("新建班级并保存");
         Klass klass = new Klass();
         klass.setName(name);
         klassRepository.save(klass);
@@ -62,11 +62,11 @@ public class KlassControllerTest extends ControllerTest {
 
     @Test
     public void update() throws Exception {
-        logger.info("新建班级并保存");
+        log.info("新建班级并保存");
         Klass klass = new Klass();
         klassRepository.save(klass);
 
-        logger.info("新建新班级字符串");
+        log.info("新建新班级字符串");
         Klass klass1 = new Klass();;
         klass1.setName(name);
         Gson gson = new Gson();
@@ -84,7 +84,7 @@ public class KlassControllerTest extends ControllerTest {
 
     @Test
     public void delete() throws Exception {
-        logger.info("新建班级并保存");
+        log.info("新建班级并保存");
         Klass klass = new Klass();
         klassRepository.save(klass);
 
