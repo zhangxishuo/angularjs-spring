@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/Klass")
 public class KlassController {
 
+    private final KlassService klassService;         // 班级
+
     @Autowired
-    private KlassService klassService;         // 班级
+    public KlassController(KlassService klassService) {
+        this.klassService = klassService;
+    }
 
     @GetMapping("/")
     public Iterable<Klass> getAll() {
@@ -38,6 +42,5 @@ public class KlassController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         klassService.delete(id);
-        return;
     }
 }

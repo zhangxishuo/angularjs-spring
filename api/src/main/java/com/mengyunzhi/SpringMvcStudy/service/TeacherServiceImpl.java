@@ -11,8 +11,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class TeacherServiceImpl implements TeacherService {
 
+    private final TeacherRepository teacherRepository;      // 教师
+
     @Autowired
-    private TeacherRepository teacherRepository;      // 教师
+    public TeacherServiceImpl(TeacherRepository teacherRepository) {
+        this.teacherRepository = teacherRepository;
+    }
 
     @Override
     public Iterable<Teacher> getAll() {
@@ -42,6 +46,5 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public void delete(Long id) {
         teacherRepository.delete(id);                 // 调用delete删除教师
-        return;
     }
 }

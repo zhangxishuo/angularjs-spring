@@ -67,7 +67,7 @@ public class KlassControllerTest extends ControllerTest {
         klassRepository.save(klass);
 
         log.info("新建新班级字符串");
-        Klass klass1 = new Klass();;
+        Klass klass1 = new Klass();
         klass1.setName(name);
         Gson gson = new Gson();
         String json = gson.toJson(klass1);

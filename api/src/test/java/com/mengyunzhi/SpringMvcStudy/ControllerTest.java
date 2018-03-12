@@ -1,6 +1,5 @@
 package com.mengyunzhi.SpringMvcStudy;
 
-import com.mengyunzhi.SpringMvcStudy.SpringMvcStudyApplicationTests;
 import org.junit.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 

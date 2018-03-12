@@ -1,9 +1,6 @@
 package com.mengyunzhi.SpringMvcStudy;
 
-import com.mengyunzhi.SpringMvcStudy.SpringMvcStudyApplicationTests;
 import org.junit.Test;
-
-import javax.transaction.Transactional;
 
 /**
  * create by zhangxishuo
