@@ -6,6 +6,8 @@ import com.mengyunzhi.SpringMvcStudy.repository.KlassRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
 
@@ -34,6 +36,12 @@ public class KlassServiceImplTest extends ServiceTest {
         log.info("查询并断言");
         List<Klass> klasses = (List<Klass>) klassService.getAll();
         assertThat(klasses.size()).isNotZero();
+    }
+
+    @Test
+    public void pageTest() {
+        PageRequest pageRequest = new PageRequest(0, 2);
+        Page<Klass> klasses = klassService.page(pageRequest);
     }
 
     @Test

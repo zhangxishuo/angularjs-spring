@@ -3,6 +3,8 @@ package com.mengyunzhi.SpringMvcStudy.service;
 import com.mengyunzhi.SpringMvcStudy.entity.Klass;
 import com.mengyunzhi.SpringMvcStudy.repository.KlassRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,6 +23,11 @@ public class KlassServiceImpl implements KlassService {
     @Override
     public Iterable<Klass> getAll() {
         return klassRepository.findAll();
+    }
+
+    @Override
+    public Page<Klass> page(Pageable pageable) {
+        return klassRepository.findAll(pageable);
     }
 
     @Override
